@@ -1,0 +1,22 @@
+{
+  "name": "product-matcher",
+  "version": "0.1.1",
+  "description": "Match products together. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Meghan Horton",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "express": "^4.14.1",
+    "handlebars": "^4.0.6"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-handlebars": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}
