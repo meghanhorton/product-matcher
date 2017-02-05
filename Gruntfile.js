@@ -3,18 +3,13 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'public/assets/css/app.css' : 'assets/sass/app.scss'
+          'public/assets/css/app.css' : 'assets/css/app.scss'
         }
-      }
-    },
-    nodemon: {
-      dev: {
-        script: 'app.js'
       }
     },
     watch: {
       sass: {
-        files: ['assets/sass/**/*.scss'],
+        files: ['assets/css/**/*.scss'],
         tasks: ['sass'],
         options: {
           livereload: true
@@ -25,9 +20,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-nodemon');
 
 
-  grunt.registerTask('default', ['nodemon','sass','watch']);
+  grunt.registerTask('default', ['sass','watch']);
   grunt.registerTask('build',['sass']);
 };
