@@ -18,7 +18,7 @@ app.engine('.html', hbs.engine);
 app.set('view engine', '.html');
 
 app.get('/', function(request, response) {
-  response.render('index',{
+  response.render('home',{
   	title: 'My first app'
   });
 });
