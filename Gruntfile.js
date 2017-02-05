@@ -7,14 +7,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    nodemon: {
+      dev: {
+        script: 'app.js'
+      }
+    },
     watch: {
-      source: {
-        files: ['views/**/*.handlebars','assets/sass/**/*.scss'],
+      sass: {
+        files: ['assets/sass/**/*.scss'],
         tasks: ['sass'],
         options: {
-          livereload: true, // needed to run LiveReload
-          host: 'localhost',
-          port: 9000
+          livereload: true
         }
       }
     }
@@ -22,7 +25,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['sass']);
+
+  grunt.registerTask('default', ['nodemon','sass','watch']);
+  grunt.registerTask('build',['sass']);
 };

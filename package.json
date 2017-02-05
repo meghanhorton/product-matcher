@@ -4,7 +4,8 @@
   "description": "Match products together. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "grunt build & node app.js",
+    "test": "grunt"
   },
   "author": "Meghan Horton",
   "license": "ISC",
@@ -15,8 +16,11 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^2.0.0"
+    "grunt-nodemon": "^0.4.2",
+    "grunt-sass": "^2.0.0",
+    "node-sass": "^4.5.0",
+    "node-sass-middleware": "^0.11.0",
+    "nodemon": "^1.11.0"
   }
 }
