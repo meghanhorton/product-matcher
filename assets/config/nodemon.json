@@ -1,0 +1,6 @@
+{
+  "watch": [
+    "views/index.html",
+    "views/layouts/main.html"
+  ]
+}
