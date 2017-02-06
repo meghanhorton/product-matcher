@@ -2,6 +2,9 @@
 var express = require('express'),
 	exphbs  = require('express-handlebars'),
 	path = require('path'),
+	request = require('request'),
+	cheerio = require('cheerio'),
+	bodyParser = require('body-parser'),
 	app = express(),
 	hbs = exphbs.create({
 		defaultLayout: 'main',
@@ -23,8 +26,42 @@ app.get('/', function(request, response) {
   });
 });
 
+app.get('/form', function(request, response) {
+  response.render('form',{
+  	title: 'Form'
+  });
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-console.log(__dirname);
+
+// forms
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+
+
+app.post('/form', function(req, res){
+  url = req.body.url;
+
+  request(url, function(error, response, html){
+    if(!error){
+      var $ = cheerio.load(html);
+
+      var title, price;
+      var json = { title : "", price : "" };
+
+      $('.price').filter(function(){
+        var data = $(this);
+        // title = data.children().first().text().trim();
+        // release = data.children().last().children().last().text().trim();
+
+        json.price = data;
+      })
+    }
+
+    res.send(json.price);
+  })
+})
+
